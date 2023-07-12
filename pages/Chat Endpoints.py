@@ -11,9 +11,17 @@ with display_container:
     The general structure of the chat service allows for the initialization of a chat with some sort of context, i.e. a recipe, pairing, etc.
     and then the ability for the user to ask a question, receive a response, and to have the chat history maintained in state throughout.
     This chat history can be accessed at any time to be used as context for the model to answer the user's question, saving to a database, etc.
-    **To drill down on specific endpoints with descriptions as well as
+    
+    **Right now my thought was to use some sort of Redis store to maintain the chat history in state, but if you think there is a better / more elegant\
+    solution, please let me know!**
+               
+
+    To drill down on specific endpoints with descriptions as well as
     example JavaScript implementations, please choose an endpoint below.  You can also select "Streamlit Example" to view an example implentation of the overall
-    class structure in Streamlit.**
+    class structure in Streamlit.  **This will obviously look different with the updated session state.**  
+               
+    Right now a chat_session object is created that manages the session state via Redis.  Each session is initialized with a unique identifier,\
+        which I think would make sense to initiate with the user's id from the existing database and then tacking on an identifier that marks each chat session, recipe, etc.
     """)
 
     st.markdown('**Here is an example of the class implementation in Streamlit:**')
@@ -77,6 +85,8 @@ endpoints = {
 
         def clear_chat_history(self):
             self.chat_history = []
+
+    
     """,
     },
     "POST /initialize_chat": {

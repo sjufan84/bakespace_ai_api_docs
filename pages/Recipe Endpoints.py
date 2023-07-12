@@ -6,10 +6,10 @@ st.markdown("#### Overview:")
 st.success("""
     The general structure of the recipe service allows for the generation of a recipe based on some specifications i.e. restrictions, preferences, etc.
     The current implementation is that all the specifications are passed as a single string, but we can certainly revisit this if needed.  This utilizes a 
-    Recipe class that is the structure of the returned JSON object, and the RecipeService class that is the structure of the API itself.  **To drill down on specific endpoints with descriptions as well as
-    example JavaScript implementations, please choose an endpoint below.  You can also select "Streamlit Example" to view an example implentation of the overall
-    class structure in Streamlit.**
-    """)
+    Recipe class that is the structure of the returned JSON object, and the RecipeService class that is the structure of the API itself.  To chat about a recipe,
+    the context should be set as recipe and the recipe will be passed to initialize the chat for context.  The recipe will be held in state using
+    Redis or something similar and tied to the user's id.
+""")
 
 endpoints = {
     "POST /generate_recipe": {
@@ -30,6 +30,48 @@ endpoints = {
             .then(data => console.log(data));
             ```
             Replace 'http://localhost:8000' with the actual server URL if different.
+        """
+    },
+    "GET /get_recipe_by name": {
+        "description": """
+        This endpoint allows you to retrieve the recipe by name.  It accesses the recipe via the Redis store.
+        """,
+        "code_example": """
+        """
+    },
+    "POST /save_recipe_by_name": {
+        "description": """
+        Similar to the get_recipe_by_name endpoint, this endpoint allows you to save a recipe by name to the Redis store.
+        """,
+        "code_example": """
+        """
+    },
+    "DELETE /delete_recipe_by_name": {
+        "description": """
+        Similar to the get_recipe_by_name endpoint, this endpoint allows you to delete a recipe by name from the Redis store.
+        """,
+        "code_example": """
+        """
+    },
+    "GET /view_recipe_history": {
+        "description": """
+        Pulls up the current session's recipes for the user.  This should be stored as multiple JSON recipe objects in the Redis store.
+        """,
+        "code_example": """
+        """
+    },
+    "DELETE /clear_recipe_history": {
+        "description": """
+        Clears the current session's recipe history.
+        """,
+        "code_example": """
+        """
+    },
+    "POST /save_recipe_history": {
+        "description": """
+        Saves the current session's recipe history to the Redis store.
+        """,
+        "code_example": """
         """
     },
     "Streamlit Example": {

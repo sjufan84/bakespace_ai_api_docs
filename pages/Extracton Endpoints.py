@@ -5,11 +5,16 @@ st.title("Extraction Service API Documentation")
 st.success("""
 The broad overview for these endpoints is the ability to upload image, pdf, or text files and extract the raw recipe text from them.
 This text can then be passed to the "format-recipe" endpoint to get a formatted recipe object that aligns with the Recipe model in the
-models folder.  This object's fields should line up with the existing bakespace database schema for easy insertion into the database.
-**To see more details and code examples for the specific endpoints, as well as an example implementation of the extraction service in a
-streamlit app, choose an endpoint from the dropdown below.  Some of the endpoints related to file uploads do not have javascript code examples
-due to the variance in implementation methods.  Refer back to the Streamlit example for reference to a pythonic application.**
+models folder.  **These will also need to be inititated with some sort of unique identifier that is tied to the user's id in the database,\
+or perhaps we can just use the user_id itself to manage these extractions.**
+           
+This object's fields should line up with the existing bakespace database schema for easy insertion into the database.
+To see more details and code examples for the specific endpoints, as well as an example implementation of the extraction service in a
+streamlit app, choose an endpoint from the dropdown below.  **Some of the endpoints related to file uploads do not have javascript code examples
+due to the variance in implementation methods. We will also need to work on integrating the unique ids. Refer back to the Streamlit example for reference to a pythonic application.**
 """)
+
+
 
 endpoints = {
     "Streamlit Example": {

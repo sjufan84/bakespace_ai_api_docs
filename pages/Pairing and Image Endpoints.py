@@ -3,12 +3,15 @@ import streamlit as st
 st.subheader("Image Generation and Pairings API Documentation")
 
 st.success("""
-At a very basic level, the image generation endpoint takes in a prompt as a string and then generates an image url based on that prompt\
-    utilizing StabilityAI's API.  Generally I have been using the recipe name as the initial prompt, but you can use any prompt you want.\
-        The pairing endpoint takes in a recipe text and a pairing type and returns a pairing object.  The pairing object contains the pairing text\
-        as well as the reasoning behind the pairing.  The pairing type can be any general type of pairing, such as wine,\
-        beer, cocktail, etc.  The pairing endpoint passes these parameters to the LLM API and returns the results.  **To view more specifics about\
-            the endpoints as well as code examples in javascript, please see below.  You can also view an example Streamlit implementation for reference.**
+At a very basic level, the image generation endpoint takes in a prompt as a string and then generates an image url based on that prompt
+    utilizing StabilityAI's API.  Generally I have been using the recipe name as the initial prompt, but you can use any prompt you want.
+        The pairing endpoint takes in a recipe text and a pairing type and returns a pairing object.  The pairing object contains the pairing text
+        as well as the reasoning behind the pairing.  The pairing type can be any general type of pairing, such as wine,
+        beer, cocktail, etc.  The pairing endpoint passes these parameters to the LLM API and returns the results.  **My thought is this is tied
+        to a recipe id or perhaps to a separate line in the database, and the session state will need to be managed on these as well.**
+           
+        To view more specifics about the endpoints as well as code examples in javascript, please see below.  You can also view an example
+        Streamlit implementation for reference.
 """)
 endpoints = {
     "Streamlit Example": {
